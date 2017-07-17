@@ -44,7 +44,7 @@ class Input extends Component {
         if (this.shouldUpdateOn('change')) {
             this.changeDebounced(value);
         }
-        this.props.onChange(this.props.name, value);
+        this.props.onChange(event);
     }
 
     handleBlur = (event) => {
@@ -54,7 +54,7 @@ class Input extends Component {
             this.changeDebounced.cancel();
             this.blurDebounced(value);
         }
-        this.props.onBlur(this.props.name, value);
+        this.props.onBlur(event);
     }
 
     initElementRef = (control) => {
@@ -118,7 +118,7 @@ class Input extends Component {
 }
 
 let [ ...inputGroupPropTypes ] = InputControl.propTypes;
-delete inputGroupPropTypes.children; 
+delete inputGroupPropTypes.children;
 
 Input.propTypes = {
     ...InputControl.propTypes,
